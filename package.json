@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./input.css -o ./assets/css/custom.css --watch"
+    "dev": "npx @tailwindcss/cli -i ./input.css -o ./custom.css --watch"
   },
   "keywords": [],
   "author": "",

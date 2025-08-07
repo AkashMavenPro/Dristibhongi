@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  /* Container customizations */
+  --container-padding: 1rem;
+  --container-center: true;
+
+  /* Custom Colors */
+  --color-primary: #FFCA00;
+  --color-secondary: #000000;
+  --color-news-red: #E50914;
+  --color-red : #FF2B2B;
+  --color-yellow : #E5B600;
+
+  /* Custom Font */
+  --font-kalpurush: Kalpurush, sans-serif;
+  --font-Impact LT Std: Impact LT Std, sans-serif;
+}
+
+
+@layer base {
+  .wp-newsznow *,
+  .wp-newsznow button,
+  .wp-newsznow ::before,
+  .wp-newsznow ::after {
+    font-family: 'Kalpurush', sans-serif;
+  }
+
+  .wp-newsznow a {
+    font-family: 'Kalpurush', sans-serif;
+    color: inherit;
+  }
+}
+
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+
+@layer components {
+  /* Font Faces (FIXED PATHS) */
+  @font-face {
+    font-family: 'Impact LT Std';
+    src: url('../fonts/eot/ImpactLTStd.eot'); /* Corrected Path */
+    src: url('../fonts/eot/ImpactLTStd.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/woff2/ImpactLTStd.woff2') format('woff2'), /* Corrected Path */
+         url('../fonts/woff/ImpactLTStd.woff') format('woff'), /* Corrected Path */
+         url('../fonts/ttf/ImpactLTStd.ttf') format('truetype'), /* Corrected Path */
+         url('../fonts/svg/ImpactLTStd.svg#ImpactLTStd') format('svg'); /* Corrected Path */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Kalpurush';
+    src: url('../fonts/eot/Kalpurush.eot'); /* Corrected Path */
+    src: url('../fonts/eot/Kalpurush.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/woff2/Kalpurush.woff2') format('woff2'), /* Corrected Path */
+         url('../fonts/woff/Kalpurush.woff') format('woff'), /* Corrected Path */
+         url('../fonts/ttf/Kalpurush.ttf') format('truetype'), /* Corrected Path */
+         url('../fonts/svg/Kalpurush.svg#Kalpurush') format('svg'); /* Corrected Path */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+ .dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Positions the menu directly below the nav bar */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the menu under the link */
+    z-index: 1000;
+    min-width: 12rem; /* Minimum width of the dropdown */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #000000; /* Dark Gray background */
+    border-radius: 0 0 0.5rem 0.5rem; /* Rounds only the bottom corners */
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2);
+    border: 1px solid #374151; /* Subtle gray border */
+    border-top: none; /* No top border, creating a seamless connection */
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 0.75rem 1.25rem; /* Generous padding for easy clicking */
+    color: #d1d5db; /* Light gray text for readability */
+    white-space: nowrap;
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Themed hover effect using your project's red color */
+  .dropdown-menu li a:hover {
+    background-color: #DC2626; /* Red */
+    color: white;
+  }
+  .top-nav .nav-link {
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .bottom-nav .nav-link {
+    position: relative;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .bottom-nav .nav-link:first-child {
+    border-right: 1px solid white;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: white;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    display: none;
+  }
+
+  .swiper-button-next {
+    right: 30px !important;
+  }
+
+  .swiper-button-prev {
+    left: 30px !important;
+  }
+
+  .thumb-primary {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .thumb-secondary {
+    aspect-ratio: 860 / 493;
+    object-fit: cover;
+  }
+}

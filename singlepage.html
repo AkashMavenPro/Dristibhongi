@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drishti Bhangi - News Portal</title>
+
+  <!-- JQuery -->
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+
+  <!-- Your Custom Stylesheet (if needed) -->
+  <link rel="stylesheet" href="/assets/css/custom.css" />
+
+
+  <style>
+  /* Preloader Animation */
+  #preloader img {
+    /* The 'pulse' animation is defined below */
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+  }
+
+  /* Smooth transition for the preloader fade-out */
+  #preloader {
+    transition: opacity 0.7s ease-out, visibility 0.7s ease-out;
+  }
+</style>
+</head>
+
+<body class="bg-white font-kalpurush">
+
+
+<!-- =================================================================
+START: PRELOADER
+================================================================== -->
+<div id="preloader" class="fixed inset-0 bg-black grid place-items-center z-[9999]">
+  <img class="w-32 h-32" src="./assets/images/logo-test.png" alt="Loading..." />
+</div>
+<!-- =================================================================
+END: PRELOADER
+================================================================== -->  
+
+<!-- =================================================================
+START: FINAL HEADER WITH UPDATED MENUS
+================================================================== -->
+<header class="relative z-50 ">
+  <!-- Main Header Bar -->
+  <div class="h-20 bg-black mt-0 md:mt-14">
+    <div class="max-w-screen-xl mx-auto px-4 h-full">
+      <div class="flex items-center justify-between h-full relative">
+
+        <div class="hidden lg:block absolute left-0 -bottom-8 z-20">
+        <a href="/"><img class="h-36 w-36" src="./assets/images/logo-test.png" alt="দৃষ্টি ভঙ্গি Logo" /></a>
+    </div>
+
+    <!-- Mobile Logo -->
+    <div class="lg:hidden">
+        <a href="/"><img class="h-16 w-16" src="./assets/images/logo-test.png" alt="দৃষ্টি ভঙ্গি Logo" /></a>
+    </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex flex-grow items-center justify-center h-full">
+            <nav class="h-full">
+                <ul class="flex items-center space-x-6 text-base font-medium text-white h-full">
+                    <li><a href="#" class="h-full text-xl flex items-center text-gray-300 hover:text-white transition-colors">সংসদ</a></li>
+                    <li><a href="#" class="h-full text-xl flex items-center text-gray-300 hover:text-white transition-colors">হচ্ছে টা কী?</a></li>
+                    <li><a href="#" class="h-full text-xl flex items-center text-gray-300 hover:text-white transition-colors">কলকাতা</a></li>
+                    <li class="h-full flex items-center dropdown-submenu relative">
+                        <a href="#" class="flex text-xl items-center gap-1.5 h-full text-gray-300 hover:text-white transition-colors">রাজ্য<svg class="w-5 h-5 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"/></svg></a>
+                        <ul class="dropdown-menu text-xl">
+                            <li><a href="#">রাজ্য</a></li>
+                            <li><a href="#">উত্তরবঙ্গ</a></li>
+                            <li><a href="#">দক্ষিণবঙ্গ</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="h-full text-xl flex items-center text-gray-300 hover:text-white transition-colors">দেশ</a></li>
+                    <li><a href="#" class="h-full text-xl flex items-center text-gray-300 hover:text-white transition-colors">আন্তর্জাতিক</a></li>
+                    <li><a href="#" class="h-full text-xl flex items-center text-gray-300 hover:text-white transition-colors">খেলা</a></li>
+                    <li><a href="#" class="h-full text-xl flex items-center text-gray-300 hover:text-white transition-colors">জীবনশৈলী</a></li>
+                    <li><a href="#" class="h-full text-xl flex items-center text-gray-300 hover:text-white transition-colors">স্বাস্থ্য</a></li>
+                    <li><a href="#" class="h-full text-xl flex items-center text-gray-300 hover:text-white transition-colors">পেটপুজো</a></li>
+                    <li class="h-full flex items-center dropdown-submenu relative">
+                        <a href="#" class="flex text-xl items-center gap-1.5 h-full text-gray-300 hover:text-white transition-colors">আরও<svg class="w-5 h-5 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"/></svg></a>
+                        <ul class="dropdown-menu text-xl">
+                            <li><a href="#">২১শে জুলাই</a></li>
+                            <li><a href="#">প্রযুক্তি</a></li>
+                            <li><a href="#">তথ্য যাচাই</a></li>
+                            <li><a href="#">বিনোদন</a></li>
+                            <li><a href="#">ভ্রমণ</a></li>
+                            <li><a href="#">বিবিধ</a></li>
+                            <li><a href="#">শারদীয়া পত্রিকা</a></li>
+                            <li><a href="#">পুজো স্পেশাল</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Mobile & Desktop Controls -->
+        <div class="flex items-center gap-4">
+            <button id="search-open-button" class="text-white hover:text-gray-300">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+            </button>
+            <button id="mobile-menu-open-button" class="lg:hidden text-white hover:text-gray-300">
+                <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+            </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="menu-overlay" class="hidden lg:hidden fixed inset-0 bg-black/50 z-30"></div>
+
+  <!-- Off-Canvas Mobile Menu Panel -->
+  <div id="mobile-menu-panel" class="fixed top-0 right-0 bottom-0 bg-black w-5/6 max-w-sm transform translate-x-full transition-transform duration-300 ease-in-out z-40 overflow-y-auto">
+      <div class="px-4 py-6">
+          <!-- Menu Header -->
+          <div class="flex items-center justify-between pb-4 border-b border-gray-700">
+              <h2 class="text-2xl font-bold text-white">মেনু</h2>
+              <button id="mobile-menu-close-button" class="text-white hover:text-gray-300">
+                  <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+              </button>
+          </div>
+          <!-- Menu Links with Submenus -->
+          <ul class="mt-8 space-y-2 text-xl text-gray-300">
+              <li><a href="#" class="block p-2 rounded hover:bg-gray-800">সংসদ</a></li>
+              <li><a href="#" class="block p-2 rounded hover:bg-gray-800">হচ্ছে টা কী?</a></li>
+              <li><a href="#" class="block p-2 rounded hover:bg-gray-800">কলকাতা</a></li>
+              <li class="mobile-menu-item">
+                  <a href="#" class="mobile-submenu-trigger flex items-center justify-between w-full p-2 rounded hover:bg-gray-800">
+                      <span>রাজ্য</span>
+                      <svg class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"/></svg>
+                  </a>
+                  <ul class="mobile-submenu hidden pl-4 mt-2 space-y-2 text-lg">
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">রাজ্য</a></li>
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">উত্তরবঙ্গ</a></li>
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">দক্ষিণবঙ্গ</a></li>
+                  </ul>
+              </li>
+              <li><a href="#" class="block p-2 rounded hover:bg-gray-800">দেশ</a></li>
+              <li><a href="#" class="block p-2 rounded hover:bg-gray-800">আন্তর্জাতিক</a></li>
+              <li><a href="#" class="block p-2 rounded hover:bg-gray-800">খেলা</a></li>
+              <li><a href="#" class="block p-2 rounded hover:bg-gray-800">জীবনশৈলী</a></li>
+              <li><a href="#" class="block p-2 rounded hover:bg-gray-800">স্বাস্থ্য</a></li>
+              <li><a href="#" class="block p-2 rounded hover:bg-gray-800">পেটপুজো</a></li>
+              <li class="mobile-menu-item">
+                  <a href="#" class="mobile-submenu-trigger flex items-center justify-between w-full p-2 rounded hover:bg-gray-800">
+                      <span>আরও</span>
+                      <svg class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"/></svg>
+                  </a>
+                  <ul class="mobile-submenu hidden pl-4 mt-2 space-y-2 text-lg">
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">২১শে জুলাই</a></li>
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">প্রযুক্তি</a></li>
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">তথ্য যাচাই</a></li>
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">বিনোদন</a></li>
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">ভ্রমণ</a></li>
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">বিবিধ</a></li>
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">শারদীয়া পত্রিকা</a></li>
+                      <li><a href="#" class="block p-2 rounded hover:bg-gray-800">পুজো স্পেশাল</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+  <!-- Search Overlay -->
+  <div id="search-overlay" class="hidden fixed inset-0 bg-black/90 z-[110]">
+      <div class="flex flex-col items-center justify-center h-full">
+          <button id="search-close-button" class="absolute top-6 right-6 text-gray-400 hover:text-white"><svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg></button>
+          <div class="w-11/12 md:w-1/2"><input type="search" placeholder="এখানে সার্চ করুন..." class="w-full p-4 text-xl text-center text-white bg-transparent border-b-2 border-gray-500 focus:border-red-500 outline-none"></div>
+      </div>
+  </div>
+
+  <!-- Spacer for overhanging logo on desktop -->
+  <div class="hidden lg:block h-16"></div>
+</header>
+<!-- =================================================================
+END: FINAL HEADER
+================================================================== -->
+
+  <!-- Floating Social Media Bar -->
+  <div class="hidden lg:block fixed top-1/3 -translate-y-1/2 right-0 z-40">
+      <div class="flex flex-col items-center gap-4 bg-red p-1.5 rounded-l-md">
+          <a href="#" aria-label="Twitter"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.4806 19.7386C15.2851 19.7525 15.0897 19.7525 14.8943 19.7525C8.93364 19.7525 2.0656 15.2157 2.0656 6.92385C2.0656 4.36928 2.80548 1.9962 4.08968 -6.92559e-07C4.04783 0.362956 4.03387 0.711906 4.03387 1.08883C4.03387 3.19666 4.74577 5.13704 5.96024 6.68654C6.00214 4.7043 7.30035 3.04313 9.08716 2.47079C9.04531 2.75 9.01738 3.02917 9.01738 3.32234C9.01738 3.72715 9.07324 4.132 9.17091 4.50888C9.58973 2.4429 11.4044 0.893363 13.596 0.893363L13.6519 0.893363C13.3168 1.49359 13.1074 2.19162 13.0796 2.93141C13.8892 1.71695 15.2712 0.921293 16.8346 0.921293C17.6722 0.921293 18.44 1.1446 19.11 1.53549C16.374 3.75504 14.5872 7.09135 14.3917 10.8324C14.7268 10.7626 15.0757 10.7207 15.4247 10.7207C17.9095 10.7207 19.9336 12.7309 19.9336 15.2296C19.9336 16.5278 19.3892 17.7004 18.5097 18.524C18.7052 19.543 19.0821 20.5202 19.5986 21.3857C18.5516 21.0506 17.6721 20.3387 17.1138 19.4035C17.2115 20.3109 17.4628 21.1903 17.8118 21.9999C16.9184 21.3858 16.1227 20.618 15.4806 19.7386Z" fill="white"/>
+</svg>
+</a>
+          <a href="#" aria-label="Facebook"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.625 16.1243L13.6065 16.7353L13.6065 12.915L16.1902 12.915C17.2795 12.915 18.3412 13.4487 18.3412 15.1597L18.3412 16.8965L21.731 16.8965C21.731 16.8965 22 15.3204 22 13.8135C22 10.6673 20.093 8.61081 16.6409 8.61081L13.6065 8.61081L13.6065 5.11359L9.625 5.11359L9.625 8.61081L-1.52869e-07 8.61081L-3.4101e-07 12.915L9.625 12.915L9.625 16.1243Z" fill="white"/>
+</svg>
+</a>
+          <a href="#" aria-label="YouTube"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.2625 20.9894C18.1655 20.7496 18.8767 20.0431 19.1181 19.146C19.5566 17.52 19.5566 11 19.5566 11C19.5566 11 19.5566 4.48008 19.1181 2.85406C18.8767 1.957 18.1655 1.25049 17.2625 1.01069C15.6256 0.575012 12.2106 0.575012 12.2106 0.575012C12.2106 0.575012 8.79551 0.575012 7.15869 1.01069C6.25565 1.25049 5.57407 1.957 5.33272 2.85406C4.89414 4.48008 4.89414 11 4.89414 11C4.89414 11 4.89414 17.52 5.33272 19.146C5.57407 20.0431 6.25565 20.7496 7.15869 20.9894C8.79551 21.4251 12.2106 21.4251 12.2106 21.4251C12.2106 21.4251 15.6256 21.4251 17.2625 20.9894ZM9.10995 8.86763L15.3112 8.86763L12.2105 14.3171L9.10995 8.86763Z" fill="white"/>
+</svg>
+</a>
+          <a href="#" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.9417 10.9996C15.9417 8.26677 13.7374 6.06247 11.0046 6.06247C8.27178 6.06247 6.06748 8.26677 6.06748 10.9996C6.06748 13.7324 8.27178 15.9367 11.0046 15.9367C13.7374 15.9367 15.9417 13.7324 15.9417 10.9996ZM7.79482 10.9996C7.79482 9.23357 9.23428 7.78982 11.0046 7.78982C12.7749 7.78982 14.2144 9.22927 14.2144 10.9996C14.2144 12.7699 12.7749 14.2094 11.0046 14.2094C9.23428 14.2094 7.79482 12.7656 7.79482 10.9996ZM16.1437 17.2902C15.5034 17.2902 14.9921 16.7746 14.9921 16.1386C14.9921 15.4984 15.5077 14.9871 16.1437 14.9871C16.7796 14.9871 17.2952 15.5027 17.2952 16.1386C17.2952 16.7746 16.7796 17.2902 16.1437 17.2902ZM14.9749 20.5601C16.5175 20.4871 17.8839 20.1347 19.0097 19.0047C20.1354 17.8789 20.4878 16.5125 20.5651 14.9699C20.6554 13.3801 20.6554 8.61482 20.5651 7.02498C20.4921 5.48669 20.1397 4.12029 19.014 2.99021C17.8882 1.86013 16.5218 1.51208 14.9792 1.43474C13.3894 1.34451 8.62412 1.34451 7.03428 1.43474C5.4917 1.50779 4.12529 1.86013 2.99951 2.99021C1.87373 4.12029 1.52139 5.4824 1.44404 7.02497C1.35381 8.61482 1.35381 13.3801 1.44404 14.9699C1.51709 16.5125 1.86943 17.8789 2.99951 19.0047C4.12529 20.1304 5.4917 20.4828 7.03428 20.5601C8.62412 20.6504 13.3851 20.6504 14.9749 20.5601ZM5.32842 18.5062C4.48623 18.1711 3.8374 17.5222 3.49795 16.6758C2.99521 15.4082 3.11123 12.4004 3.11123 10.9996C3.11123 9.5988 2.99951 6.58669 3.49795 5.32341C3.8331 4.48122 4.48193 3.8324 5.32842 3.49294C6.596 2.99021 9.60381 3.10623 11.0046 3.10623C12.4054 3.10623 15.4175 2.99451 16.6808 3.49294C17.5229 3.8281 18.1718 4.47693 18.5112 5.32341C19.014 6.59099 18.8979 9.5988 18.8979 10.9996C18.8979 12.4004 19.0097 15.4125 18.5112 16.6758C18.1761 17.5179 17.5272 18.1668 16.6808 18.5062C15.4132 19.009 12.4054 18.8929 11.0046 18.8929C9.60381 18.8929 6.5917 19.009 5.32842 18.5062Z" fill="white"/>
+</svg>
+</a>
+          <a href="#" aria-label="Threads"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.00027 3L6.80027 4.65C8.59221 3.38766 10.7832 2.82267 12.9622 3.06104C15.1411 3.29942 17.1581 4.32479 18.6348 5.94471C20.1114 7.56463 20.9461 9.66775 20.9822 11.8594C21.0183 14.051 20.2533 16.1805 18.8309 17.8482C17.4085 19.5159 15.4263 20.6071 13.2564 20.9172C11.0865 21.2272 8.87806 20.7347 7.0455 19.5321C5.21294 18.3295 3.88225 16.4994 3.30316 14.3854C2.72407 12.2713 2.93639 10.0186 3.90027 8.05L3.00027 3Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14 9C13.8674 9 13.7402 9.05268 13.6464 9.14645C13.5527 9.24021 13.5 9.36739 13.5 9.5C13.5 9.63261 13.5527 9.75979 13.6464 9.85355C13.7402 9.94732 13.8674 10 14 10L15 10C15.1326 10 15.2598 9.94732 15.3536 9.85355C15.4473 9.75979 15.5 9.63261 15.5 9.5C15.5 9.36739 15.4473 9.24021 15.3536 9.14645C15.2598 9.05268 15.1326 9 15 9L14 9ZM14 9C12.6739 9 11.4021 9.52678 10.4645 10.4645C9.52678 11.4021 9 12.6739 9 14M9 14L9 15C9 15.1326 9.05268 15.2598 9.14645 15.3536C9.24021 15.4473 9.36739 15.5 9.5 15.5C9.63261 15.5 9.75979 15.4473 9.85355 15.3536C9.94732 15.2598 10 15.1326 10 15L10 14C10 13.8674 9.94732 13.7402 9.85355 13.6464C9.75979 13.5527 9.63261 13.5 9.5 13.5C9.36739 13.5 9.24021 13.5527 9.14645 13.6464C9.05268 13.7402 9 13.8674 9 14Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+      </div>
+  </div>
+
+<!-- =================================================================
+START: YOUTUBE VIDEO POPUP MODAL (CENTERED FIX)
+================================================================== -->
+<div id="video-popup-modal" class="hidden fixed inset-0 bg-black/80 z-[200] flex items-center justify-center p-4">
+    <!-- Close Button -->
+    <button id="video-popup-close" class="absolute top-4 right-4 text-white hover:text-gray-300 z-10">
+        <svg class="w-10 h-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+    </button>
+    
+    <!-- Video Player Container - Now centered horizontally with mx-auto -->
+    <div class="w-full h-full max-w-4xl aspect-video mx-auto py-50">
+        <div id="video-player-container" class="w-full h-full bg-black">
+            <!-- YouTube iframe will be injected here by jQuery -->
+        </div>
+    </div>
+</div>
+<!-- =================================================================
+END: YOUTUBE VIDEO POPUP MODAL
+================================================================== -->
+
+<main class="max-w-screen-xl mx-auto px-4 my-8">
+
+  <!-- =================================================================
+  START: ARTICLE & SIDEBAR SECTION
+  ================================================================== -->
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 mb-12">
+
+    <!-- == Main Article Content (Left Column) == -->
+    <article class="lg:col-span-2">
+      <!-- Breadcrumbs -->
+      <div class="flex items-center gap-x-2 text-sm text-gray-500 mb-4">
+        <a href="#" class="hover:text-red-600">বাড়ি</a>
+        <span>/</span>
+        <span class="font-semibold text-white bg-red p-2 rounded-md">নির্বাচনের খবর</span>
+      </div>
+  
+      <!-- Article Header -->
+      <header>
+        <h1 class="lg:text-4xl text-2xl font-extrabold text-gray-900 leading-tight mb-3">
+          ২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়
+        </h1>
+        <p class="lg:text-lg text-sm text-gray-600 mb-4">
+          Yorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        </p>
+        <div class="flex items-center text-sm text-gray-500 mb-6">
+          <span>July 4, 2025</span>
+          <span class="mx-2">|</span>
+          <span>2 min read</span>
+        </div>
+      </header>
+  
+      <!-- Featured Image -->
+      <figure class="w-full mb-6">
+        <img src="./assets/images/image.png" alt="Featured image of the article" class="w-full h-auto object-cover rounded-lg">
+      </figure>
+  
+      <!-- Author & Share -->
+      <div class="flex items-center justify-between text-sm text-gray-500 border-b pb-6 mb-6">
+          <div>
+              <span>Published by: <strong class="text-gray-800">Joydeep ray</strong></span>
+              <span class="mx-0">|</span>
+              <!-- <br class="block lg:hidden"></br> -->
+              <span>Written by: <strong class="text-gray-800">Joydeep ray</strong></span>
+          </div>
+          <button aria-label="Share this article">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-600 hover:text-red-600"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+      </div>
+  
+      <!-- Article Body -->
+      <div class="lg:text-lg prose max-w-none text-md text-gray-800">
+        <strong>নিউজ ডেস্ক, দৃষ্টিভঙ্গি, ৮ইঃ</strong>
+        <p> ভারতীয় জনজীবনে তুলসী গাছের (Tulsi plant) রয়েছে গভীর ধর্মীয় ও সাংস্কৃতিক গুরুত্ব। হিন্দু ধর্মে একে লক্ষ্মীর রূপ হিসেবে পুজো করা হয়, যা ঘরোয়া শান্তি, পবিত্রতা ও শুভ শক্তির প্রতীক। কিন্তু সাম্প্রতিক সময়ে এই পবিত্র গাছকেই এক অন্যরকম বিতর্কের কেন্দ্রে দাঁড় করানো হয়েছে – এবার তা ধর্মীয় বিভাজনের হাতিয়ার হয়ে উঠেছে বিজেপির (BJP) রাজনীতিতে।</p>
+        <strong>তুলসী গাছ, হিন্দু ধর্মে তাৎপর্য কী?</strong>
+        <p>তুলসী গাছকে হিন্দু ধর্মে দেবী তুলসীর প্রতীক হিসেবে মানা হয়। তুলসী বিবাহ, কার্তিক মাসে তুলসী পুজো ও প্রদক্ষিণকে সপ্তাহজুড়ে এই গাছ পূজিত হয়। বিশ্বাস করা হয়, তুলসীর উপস্থিতি বাড়িতে পবিত্রতা, সুস্থতা ও ঐশ্বর্য আনে। একে শুধু ধর্মীয় উপাচার নয়, জীববৈচিত্র্য ও আয়ুর্বেদিক (Ayurvedic) দিক থেকেও গুরুত্বপূর্ণ বলা হয়।</p>
+      </div>
+    </article>
+
+    <!-- == Sidebar (Right Column) == -->
+    <aside class="hidden lg:block  lg:col-span-1">
+      <div class="bg-black rounded-lg p-4">
+        <!-- Sidebar Header -->
+        <div class="relative flex items-end justify-between mb-4">
+          <div class="absolute bottom-0 left-0 w-full h-[2px] bg-red-600"></div>
+          <h3 class="text-xl font-bold text-white bg-red px-5 py-1.5 rounded-t-md z-10">আরো দেখুন</h3>
+        </div>
+        
+        <!-- Sidebar Content -->
+        <div class="space-y-6">
+          <!-- Card 1 -->
+          <a href="#" class="block group">
+            <div class="relative"><img src="./assets/images/image.png" alt="Sidebar article" class="w-full h-auto object-cover rounded-lg"><div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent"><div class="flex items-center justify-between text-white"><span class="text-xs font-medium">1 hour ago</span><span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></div>
+            <div class="mt-3"><span class="text-sm font-semibold text-yellow mb-1.5">কলকাতা</span><h4 class="font-bold text-white leading-tight group-hover:underline">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</h4></div>
+          </a>
+          <!-- Card 2 -->
+          <a href="#" class="block group"><div class="relative"><img src="./assets/images/image.png" alt="Sidebar article" class="w-full h-auto object-cover rounded-lg"><div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent"><div class="flex items-center justify-between text-white"><span class="text-xs font-medium">1 hour ago</span><span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></div><div class="mt-3"><span class="text-sm font-semibold text-yellow mb-1.5">কলকাতা</span><h4 class="font-bold text-white leading-tight group-hover:underline">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</h4></div></a>
+          <!-- Card 3 -->
+          <a href="#" class="block group"><div class="relative"><img src="./assets/images/image.png" alt="Sidebar article" class="w-full h-auto object-cover rounded-lg"><div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent"><div class="flex items-center justify-between text-white"><span class="text-xs font-medium">1 hour ago</span><span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></div><div class="mt-3"><span class="text-sm font-semibold text-yellow mb-1.5">কলকাতা</span><h4 class="font-bold text-white leading-tight group-hover:underline">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</h4></div></a>
+        </div>
+      </div>
+    </aside>
+
+  </section>
+  <!-- =================================================================
+  END: ARTICLE & SIDEBAR SECTION
+  ================================================================== -->
+
+<!-- =================================================================
+START: FINAL RESPONSIVE "MORE NEWS" SLIDER
+================================================================== -->
+<section class="bg-black py-8 px-4 sm:px-6 mb-12 rounded-md">
+
+  <!-- Section Header -->
+  <div class="relative flex items-end justify-between mb-6 max-w-screen-xl mx-auto">
+    <div class="absolute bottom-0 left-0 w-full h-[3px] bg-red-600 rounded-full"></div>
+    <h2 class="lg:text-2xl text-lg font-bold text-white bg-red-600 px-6 py-2 rounded-t-lg z-10">
+        শীর্ষ সংবাদ
+    </h2>
+    <a href="#" class="flex items-center gap-2 text-red-500 font-semibold hover:text-red-400 transition-colors pb-1.5">
+        আরো দেখুন
+        <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5414 2.625V15.375C3.54181 15.5041 3.57741 15.6306 3.64438 15.741C3.71135 15.8513 3.80715 15.9413 3.92146 16.0013C4.03578 16.0613 4.16428 16.0889 4.29315 16.0813C4.42201 16.0736 4.54635 16.031 4.65278 15.958L13.8611 9.58296C14.2429 9.31875 14.2429 8.68267 13.8611 8.41775L4.65278 2.04275C4.54657 1.96896 4.42217 1.92569 4.29309 1.91763C4.16401 1.90958 4.0352 1.93705 3.92064 1.99707C3.80608 2.05709 3.71016 2.14735 3.6433 2.25806C3.57644 2.36876 3.5412 2.49567 3.5414 2.625Z" fill="#DC2626"/></svg>
+    </a>
+  </div>
+
+  <!-- Slider Container -->
+  <div id="news-slider" class="relative max-w-screen-xl mx-auto">
+    <!-- Viewport -->
+    <div class="overflow-x-auto scrollbar-hide">
+        <!-- Slides Track -->
+        <div id="news-slider-track" class="flex -mx-3">
+            <!-- Slide 1 -->
+            <div class="news-slide w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                <a href="#" class="block group"><div class="relative w-full overflow-hidden rounded-lg"><img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105" /><div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent"><div class="flex items-center justify-between text-white"><span class="text-xs font-medium">1 hour ago</span><span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></div><div class="mt-3"><span class="text-sm font-semibold text-yellow-400 mb-1.5 inline-block">কলকাতা</span><h3 class="lg:text-xl text-md font-bold leading-tight text-white group-hover:text-red-500 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</h3></div></a>
+            </div>
+            <!-- Slide 2 -->
+            <div class="news-slide w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                <a href="#" class="block group"><div class="relative w-full overflow-hidden rounded-lg"><img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105" /><div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent"><div class="flex items-center justify-between text-white"><span class="text-xs font-medium">1 hour ago</span><span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></div><div class="mt-3"><span class="text-sm font-semibold text-yellow-400 mb-1.5 inline-block">কলকাতা</span><h3 class="lg:text-xl text-md font-bold leading-tight text-white group-hover:text-red-500 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</h3></div></a>
+            </div>
+            <!-- Slide 3 -->
+            <div class="news-slide w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                <a href="#" class="block group"><div class="relative w-full overflow-hidden rounded-lg"><img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105" /><div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent"><div class="flex items-center justify-between text-white"><span class="text-xs font-medium">1 hour ago</span><span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></div><div class="mt-3"><span class="text-sm font-semibold text-yellow-400 mb-1.5 inline-block">কলকাতা</span><h3 class="lg:text-xl text-md font-bold leading-tight text-white group-hover:text-red-500 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</h3></div></a>
+            </div>
+            <!-- Slide 4 -->
+            <div class="news-slide w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                <a href="#" class="block group"><div class="relative w-full overflow-hidden rounded-lg"><img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover aspect-video transition-transform duration-300 group-hover:scale-105" /><div class="absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent"><div class="flex items-center justify-between text-white"><span class="text-xs font-medium">1 hour ago</span><span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div></div><div class="mt-3"><span class="text-sm font-semibold text-yellow-400 mb-1.5 inline-block">কলকাতা</span><h3 class="lg:text-xl text-md font-bold leading-tight text-white group-hover:text-red-500 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</h3></div></a>
+            </div>
+            <!-- Add more slides if needed -->
+        </div>
+    </div>
+    <!-- Navigation Buttons -->
+    <button id="news-slider-prev" class="hidden lg:block absolute top-1/2 -translate-y-1/2 left-0 z-10 p-2 bg-black/40 text-white rounded-full hover:bg-black/70 disabled:opacity-30 disabled:cursor-not-allowed transition-all -ml-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
+    </button>
+    <button id="news-slider-next" class="hidden lg:block absolute top-1/2 -translate-y-1/2 right-0 z-10 p-2 bg-black/40 text-white rounded-full hover:bg-black/70 disabled:opacity-30 disabled:cursor-not-allowed transition-all -mr-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" /></svg>
+    </button>
+  </div>
+</section>
+<!-- =================================================================
+END: RESPONSIVE "MORE NEWS" SLIDER
+================================================================== -->
+  <section>
+
+    <!-- Final Article Text -->
+    <div class="lg:text-lg prose max-w-none text-md text-gray-800 ">
+      <p>সেই মুহূর্তে বিজেপির স্থানীয় নেতারা এই বিষয়টিকে “হিন্দু অধিকার” এবং “ধর্মীয় স্বাধীনতার উপর আঘাত” বলে ব্যাখ্যা করতে শুরু করে। তারা প্রচার চালায় যে মুসলিম সম্প্রদায়ের লোকেরা হিন্দুদের নিজস্ব ধর্মাচরণের ওপর বাধা দিচ্ছে, এবং এই ঘটনাকে সোশ্যাল মিডিয়া ও বিভিন্ন মিছিলে “হিন্দু নিপীড়নের প্রতীক” হিসেবে তুলে ধরা হয়।</p>
+      <p>বিজেপির কৌশল এখানে ছিল স্পষ্ট: একটি ঘরোয়া ধর্মীয় উপাদানকে সাধারণ মানুষের আবেগের সঙ্গে জুড়ে দিয়ে একটি সাম্প্রদায়িক আবহ তৈরি করা। তারা বারবার তুলসী গাছ বসানোর অধিকারকে ধর্মীয় স্বাধীনতার প্রশ্ন হিসেবে তুলে ধরতে থাকে।</p>
+      <p>পাশাপাশি, বিজেপির নেতারা মহেশতলার ঘটনাকে রাজ্যের আইনশৃঙ্খলার ব্যর্থতা বলে আক্রমণ করে, এবং বার্তা দেয় যে তৃণমূল কংগ্রেস মুসলিম তোষণের রাজনীতি করছে। একাধিক জায়গায় “তুলসী সম্মান যাত্রা” ও “হিন্দু অধিকার যাত্রা”-র মাধ্যমে উত্তেজনা ছড়ানোর চেষ্টা করা হয়। তুলসী, ধর্ম ও রাজনৈতিক বিভাজন</p>
+      <p>এই ঘটনা আরও একবার প্রমাণ করল কীভাবে এক পবিত্র, নিরীহ গাছকে রাজনৈতিক অস্ত্রে পরিণত করা যায়। বিজেপির মতাদর্শগত রাজনীতি, যেখানে প্রতিটি ধর্মীয় প্রতীককে একটি সাম্প্রদায়িক দৃষ্টিকোণ থেকে দেখা হয়, সেখানে তুলসীও ছাড় পায়নি।</p>
+      <p>তুলসী যে শুধু হিন্দু ধর্মের পবিত্র প্রতীক তা নয়, বহু মুসলিম ও অন্যান্য সম্প্রদায়ের মানুষও এই গাছকে যত্নপূর্বক বা পরিবেশগত কারণে লালন করে থাকেন। কিন্তু বিজেপি একটি সামান্য ধর্মাচারকে একটি “আমরা বনাম ওরা” ফ্রেমে ফেলেই সেই সহাবস্থানকে চ্যালেঞ্জের মুখে ফেলে দেয়। তুলসী গাছ যুগ যুগ ধরে ভারতীয় সংস্কৃতিতে সহিষ্ণুতা, শান্তি ও পবিত্রতার প্রতীক হিসেবে বিবেচিত। কিন্তু আজ তা একটি বিভাজনমূলক রাজনীতির হাতিয়ার হয়ে দাঁড়িয়েছে। সাম্প্রদায়িক রাজনীতি যখন ধর্মীয় প্রতীকগুলোকে রাজনৈতিক অজুহাতে ব্যবহার করতে শুরু করে, তখন</p>
+      <h3>প্রশ্ন ওঠে – পবিত্রতা ও বিশ্বাসের সীমান্তের সীমা কোথায়?</h3>
+      <p>এই পরিস্থিতিতে নাগরিক সমাজ ও গণতান্ত্রিক শক্তির উচিত ধর্মীয় প্রতীককে রাজনৈতিক প্রচারণার হাত থেকে বাঁচানো, যাতে তুলসী তার নিজস্ব ঐতিহ্যে থেকে যায় – শান্তি ও ঐক্যের প্রতীক হিসেবে, বিভেদের নয়।</p>
+    </div>
+  </section>
+  <!-- =================================================================
+  END: RELATED ARTICLES SECTION
+  ================================================================== -->
+
+<!-- =================================================================
+START: RESPONSIVE TOP NEWS SECTION (DESKTOP GRID, MOBILE LIST)
+================================================================== -->
+<section class="mt-10">
+
+  <!-- Section Header -->
+  <div class="relative flex items-end justify-between mb-6">
+    <div class="absolute bottom-0 left-0 w-full h-[3px] bg-red rounded-full"></div>
+    <h2 class="text-lg lg:text-2xl font-bold text-white bg-red px-6 py-2 rounded-t-lg z-10">
+      শীর্ষ সংবাদ
+    </h2>
+    <a href="#" class="lg:text-xl flex items-center gap-2 text-red font-semibold hover:underline pb-1.5">
+      আরো দেখুন
+      <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.5414 2.625V15.375C3.54181 15.5041 3.57741 15.6306 3.64438 15.741C3.71135 15.8513 3.80715 15.9413 3.92146 16.0013C4.03578 16.0613 4.16428 16.0889 4.29315 16.0813C4.42201 16.0736 4.54635 16.031 4.65278 15.958L13.8611 9.58296C14.2429 9.31875 14.2429 8.68267 13.8611 8.41775L4.65278 2.04275C4.54657 1.96896 4.42217 1.92569 4.29309 1.91763C4.16401 1.90958 4.0352 1.93705 3.92064 1.99707C3.80608 2.05709 3.71016 2.14735 3.6433 2.25806C3.57644 2.36876 3.5412 2.49567 3.5414 2.625Z" fill="#DC2626"/></svg>
+    </a>
+  </div>
+
+  <!-- News Container (Grid on Desktop, Flex on Mobile) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
+    
+    <!-- News Item 1 -->
+    <div class="flex flex-row lg:flex-col">
+      <!-- Image container -->
+      <a href="#" class="relative group block w-2/5 lg:w-full flex-shrink-0 overflow-hidden rounded-lg">
+          <img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover rounded-lg aspect-video transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute hidden lg:block bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="flex items-center justify-between text-white">
+              <span class="text-xs font-medium">1 hour ago</span>
+              <span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+      </a>
+      <!-- Text content -->
+      <div class="pl-4 lg:pl-0 lg:mt-3">
+        <a href="#" class="lg:text-lg inline-block text-md  font-semibold text-yellow px-0 py-0.5 rounded mb-0">কলকাতা</a>
+        <h3 class="text-md lg:text-xl font-bold leading-tight">
+          <a href="#" class="hover:text-gray-700 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</a>
+        </h3>
+      </div>
+    </div>
+
+    <!-- Repeat News Item 2 to 6 with the same structure -->
+    <!-- News Item 2 -->
+    <div class="flex flex-row lg:flex-col">
+      <!-- Image container -->
+      <a href="#" class="relative group block w-2/5 lg:w-full flex-shrink-0 overflow-hidden rounded-lg">
+          <img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover rounded-lg aspect-video transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute hidden lg:block bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="flex items-center justify-between text-white">
+              <span class="text-xs font-medium">1 hour ago</span>
+              <span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+      </a>
+      <!-- Text content -->
+      <div class="pl-4 lg:pl-0 lg:mt-3">
+        <a href="#" class="lg:text-lg inline-block text-md  font-semibold text-yellow px-0 py-0.5 rounded mb-0">কলকাতা</a>
+        <h3 class="text-md lg:text-xl font-bold leading-tight">
+          <a href="#" class="hover:text-gray-700 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</a>
+        </h3>
+      </div>
+    </div>
+
+    <div class="flex flex-row lg:flex-col">
+      <!-- Image container -->
+      <a href="#" class="relative group block w-2/5 lg:w-full flex-shrink-0 overflow-hidden rounded-lg">
+          <img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover rounded-lg aspect-video transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute hidden lg:block bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="flex items-center justify-between text-white">
+              <span class="text-xs font-medium">1 hour ago</span>
+              <span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+      </a>
+      <!-- Text content -->
+      <div class="pl-4 lg:pl-0 lg:mt-3">
+        <a href="#" class="lg:text-lg inline-block text-md  font-semibold text-yellow px-0 py-0.5 rounded mb-0">কলকাতা</a>
+        <h3 class="text-md lg:text-xl font-bold leading-tight">
+          <a href="#" class="hover:text-gray-700 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</a>
+        </h3>
+      </div>
+    </div>
+
+    <div class="flex flex-row lg:flex-col">
+      <!-- Image container -->
+      <a href="#" class="relative group block w-2/5 lg:w-full flex-shrink-0 overflow-hidden rounded-lg">
+          <img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover rounded-lg aspect-video transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute hidden lg:block bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="flex items-center justify-between text-white">
+              <span class="text-xs font-medium">1 hour ago</span>
+              <span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+      </a>
+      <!-- Text content -->
+      <div class="pl-4 lg:pl-0 lg:mt-3">
+        <a href="#" class="lg:text-lg inline-block text-md  font-semibold text-yellow px-0 py-0.5 rounded mb-0">কলকাতা</a>
+        <h3 class="text-md lg:text-xl font-bold leading-tight">
+          <a href="#" class="hover:text-gray-700 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</a>
+        </h3>
+      </div>
+    </div>
+
+    <div class="flex flex-row lg:flex-col">
+      <!-- Image container -->
+      <a href="#" class="relative group block w-2/5 lg:w-full flex-shrink-0 overflow-hidden rounded-lg">
+          <img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover rounded-lg aspect-video transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute hidden lg:block bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="flex items-center justify-between text-white">
+              <span class="text-xs font-medium">1 hour ago</span>
+              <span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+      </a>
+      <!-- Text content -->
+      <div class="pl-4 lg:pl-0 lg:mt-3">
+        <a href="#" class="lg:text-lg inline-block text-md  font-semibold text-yellow px-0 py-0.5 rounded mb-0">কলকাতা</a>
+        <h3 class="text-md lg:text-xl font-bold leading-tight">
+          <a href="#" class="hover:text-gray-700 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</a>
+        </h3>
+      </div>
+    </div>
+
+    <div class="flex flex-row lg:flex-col">
+      <!-- Image container -->
+      <a href="#" class="relative group block w-2/5 lg:w-full flex-shrink-0 overflow-hidden rounded-lg">
+          <img src="./assets/images/image.png" alt="Article image" class="w-full h-full object-cover rounded-lg aspect-video transition-transform duration-300 group-hover:scale-105" />
+          <div class="absolute hidden lg:block bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="flex items-center justify-between text-white">
+              <span class="text-xs font-medium">1 hour ago</span>
+              <span class="p-1"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 7.16797C16.3807 7.16797 17.5 6.04868 17.5 4.66797C17.5 3.28726 16.3807 2.16797 15 2.16797C13.6193 2.16797 12.5 3.28726 12.5 4.66797C12.5 6.04868 13.6193 7.16797 15 7.16797Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 13C6.38071 13 7.5 11.8807 7.5 10.5C7.5 9.11929 6.38071 8 5 8C3.61929 8 2.5 9.11929 2.5 10.5C2.5 11.8807 3.61929 13 5 13Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 18.832C16.3807 18.832 17.5 17.7127 17.5 16.332C17.5 14.9513 16.3807 13.832 15 13.832C13.6193 13.832 12.5 14.9513 12.5 16.332C12.5 17.7127 13.6193 18.832 15 18.832Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.15625 11.7578L12.8479 15.0745" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12.8396 5.92578L7.15625 9.24245" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </div>
+      </a>
+      <!-- Text content -->
+      <div class="pl-4 lg:pl-0 lg:mt-3">
+        <a href="#" class="lg:text-lg inline-block text-md  font-semibold text-yellow px-0 py-0.5 rounded mb-0">কলকাতা</a>
+        <h3 class="text-md lg:text-xl font-bold leading-tight">
+          <a href="#" class="hover:text-gray-700 transition-colors">২৩-এ ২৩! কলকাতা পুরসভার কো-অপারেটিভ ক্রেডিট সোসাইটির নির্বাচনে সবুজ ঝড়</a>
+        </h3>
+      </div>
+    </div>
+    
+    <!-- And so on for items 3, 4, 5, 6... -->
+    
+  </div>
+</section>
+<!-- =================================================================
+END: RESPONSIVE TOP NEWS SECTION
+================================================================== -->
+  
+</main>
+  <!-- =================================================================
+START: NEW FOOTER
+================================================================== -->
+<footer class="bg-black text-gray-300 pt-12 px-4 mt-14">
+  <!--Mobile Logo -->
+ <div class="block lg:hidden flex items-start justify-flex lg:justify-start">
+    <a href="/">
+      <img class="h-30 w-30" src="./assets/images/logo-test.png" alt="দৃষ্টি ভঙ্গি Logo" />
+    </a>
+  </div>
+  <div class="max-w-screen-xl mx-auto px-4">
+     
+    <!-- Top Footer Section: Logo and Links -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 pb-12">
+  <!-- Logo -->
+  <div class="hidden lg:block flex items-center justify-center lg:justify-start">
+    <a href="/">
+      <img class="h-40 w-40" src="./assets/images/logo-test.png" alt="দৃষ্টি ভঙ্গি Logo" />
+    </a>
+  </div>
+
+  
+  <!-- Footer Navigation Links -->
+  <div class="lg:col-span-2 grid grid-cols-2 sm:grid-cols-6 gap-8">
+    <div></div>
+    <div></div>
+    <div>
+ 
+      <ul class="space-y-3">
+        <li><a href="#" class="hover:text-white transition-colors">ট্রেন্ডিং</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">ট্রেন্ডিং ১</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">ট্রেন্ডিং ২</a></li>
+        <li><a href="#" class="hover:text-white transition-colors">ট্রেন্ডিং ৩</a></li>
+      </ul>
+    </div>
+    <div>
+        
+        <ul class="space-y-3">
+          <li><a href="#" class="hover:text-white transition-colors">ভিডিওস</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">সকল ভিডিও</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">এক্সক্লুসিভ</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">সাক্ষাৎকার</a></li>
+        </ul>
+    </div>
+
+    <div>
+        
+        <ul class="space-y-3">
+          <li><a href="#" class="hover:text-white transition-colors">সংবাদ</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">রাজ্য</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">দেশ</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">আন্তর্জাতিক</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">খেলা</a></li>
+        </ul>
+    </div>
+    <div>
+        
+        <ul class="space-y-3">
+          <li><a href="#" class="hover:text-white transition-colors">আরও</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">বিনোদন</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">জীবনশৈলী</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">প্রযুক্তি</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">আমাদের সম্পর্কে</a></li>
+        </ul>
+    </div>
+  </div>
+  <div class="block md:hidden lg:hidden border-t border-gray-700 mt-[-230px]"></div>
+</div>
+
+<!-- Separator Line -->
+<div class="h-1 w-auto">
+  <svg width="auto" height="4" viewBox="0 0 1440 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="4" fill="url(#paint0_linear_25_2332)"/>
+<defs>
+<linearGradient id="paint0_linear_25_2332" x1="0" y1="2" x2="1440" y2="2" gradientUnits="userSpaceOnUse">
+<stop offset="0.5" stop-color="#FF0000"/>
+<stop offset="0.501" stop-color="#FFCB01"/>
+</linearGradient>
+</defs>
+</svg>
+
+</div>
+
+<!-- Bottom Footer Section: Copyright and Socials -->
+<div class="flex flex-col-reverse md:flex-row items-center justify-between gap-6 py-6">
+  <!-- Copyright & Legal Links -->
+  <div class="text-sm text-center md:text-left">
+    <span>© 2025, সর্বস্বত্ত্ব সংরক্ষিত</span>
+    <span class="mx-1">|</span>
+    <a href="#" class="hover:text-white">কপিরাইট</a>
+    <span class="mx-1">|</span>
+    <a href="#" class="hover:text-white">গোপনীয়তা বিজ্ঞপ্তি</a>
+    <span class="mx-1">|</span>
+    <a href="#" class="hover:text-white">অস্বীকৃতি (ডিসক্লেইমার)</a>
+  </div>
+  
+  <!-- Social Media Icons -->
+  <div class="flex items-center space-x-3">
+    <a href="#" class="social-icon-footer" aria-label="Twitter">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.670688" y="0.405063" width="36.4557" height="36.4557" rx="18.2278" stroke="white" stroke-width="0.810127"/>
+<path d="M25.978 15.0028C25.9893 15.1611 25.9893 15.3194 25.9893 15.4778C25.9893 20.3066 22.314 25.8706 15.5965 25.8706C13.527 25.8706 11.6045 25.2712 9.9873 24.2308C10.2813 24.2647 10.564 24.2761 10.8694 24.2761C12.577 24.2761 14.149 23.6993 15.4042 22.7154C13.7984 22.6815 12.4526 21.6298 11.989 20.1822C12.2152 20.2161 12.4413 20.2388 12.6788 20.2388C13.0068 20.2388 13.3348 20.1935 13.6401 20.1144C11.9664 19.7751 10.711 18.305 10.711 16.5295V16.4843C11.1973 16.7557 11.7628 16.9253 12.3621 16.9479C11.3782 16.292 10.7337 15.1724 10.7337 13.9058C10.7337 13.2273 10.9146 12.6053 11.2312 12.0625C13.0294 14.279 15.7322 15.7265 18.7629 15.8849C18.7064 15.6135 18.6725 15.3308 18.6725 15.048C18.6725 13.035 20.301 11.3953 22.3252 11.3953C23.377 11.3953 24.3269 11.8363 24.9941 12.5488C25.8196 12.3905 26.6113 12.0851 27.3124 11.6667C27.041 12.5149 26.4643 13.2273 25.7066 13.6796C26.4417 13.6005 27.1541 13.3969 27.81 13.1142C27.3125 13.838 26.6905 14.4825 25.978 15.0028Z" fill="white"/>
+</svg>
+</a>
+    <a href="#" class="social-icon-footer" aria-label="Facebook">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1.03788" y="0.405063" width="36.4557" height="36.4557" rx="18.2278" stroke="white" stroke-width="0.810127"/>
+<path d="M23.4172 19.747L23.9122 16.5215H20.8172V14.4284C20.8172 13.5459 21.2495 12.6858 22.6357 12.6858H24.0427V9.93959C24.0427 9.93959 22.7659 9.72168 21.5451 9.72168C18.9963 9.72168 17.3303 11.2666 17.3303 14.0632V16.5215H14.4971V19.747H17.3303V27.5445H20.8172V19.747H23.4172Z" fill="white"/>
+</svg>
+ </a>
+    <a href="#" class="social-icon-footer" aria-label="YouTube">
+      <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.405063" y="0.405063" width="36.4557" height="36.4557" rx="18.2278" stroke="white" stroke-width="0.810127"/>
+<path d="M26.7257 13.56C26.5315 12.8284 25.9591 12.2522 25.2324 12.0567C23.9151 11.7014 18.6331 11.7014 18.6331 11.7014C18.6331 11.7014 13.3511 11.7014 12.0338 12.0567C11.3071 12.2523 10.7347 12.8284 10.5405 13.56C10.1875 14.886 10.1875 17.6527 10.1875 17.6527C10.1875 17.6527 10.1875 20.4193 10.5405 21.7453C10.7347 22.4769 11.3071 23.0291 12.0338 23.2246C13.3511 23.5799 18.6331 23.5799 18.6331 23.5799C18.6331 23.5799 23.9151 23.5799 25.2324 23.2246C25.9591 23.0291 26.5315 22.4769 26.7257 21.7453C27.0787 20.4193 27.0787 17.6527 27.0787 17.6527C27.0787 17.6527 27.0787 14.886 26.7257 13.56ZM16.9056 20.1646V15.1408L21.3203 17.6527L16.9056 20.1646Z" fill="white"/>
+</svg>
+</a>
+    <a href="#" class="social-icon-footer" aria-label="Instagram">
+    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.772251" y="0.405063" width="36.4557" height="36.4557" rx="18.2278" stroke="white" stroke-width="0.810127"/>
+<path d="M18.9998 14.6297C16.7859 14.6297 15.0002 16.4155 15.0002 18.6294C15.0002 20.8433 16.7859 22.6291 18.9998 22.6291C21.2138 22.6291 22.9995 20.8433 22.9995 18.6294C22.9995 16.4155 21.2138 14.6297 18.9998 14.6297ZM18.9998 21.2297C17.5692 21.2297 16.3995 20.0636 16.3995 18.6294C16.3995 17.1952 17.5657 16.0291 18.9998 16.0291C20.434 16.0291 21.6002 17.1952 21.6002 18.6294C21.6002 20.0636 20.4305 21.2297 18.9998 21.2297ZM24.0961 14.4661C24.0961 14.9848 23.6783 15.399 23.1631 15.399C22.6445 15.399 22.2302 14.9813 22.2302 14.4661C22.2302 13.9509 22.648 13.5332 23.1631 13.5332C23.6783 13.5332 24.0961 13.9509 24.0961 14.4661ZM26.7451 15.413C26.6859 14.1633 26.4005 13.0563 25.485 12.1443C24.573 11.2323 23.466 10.9468 22.2163 10.8842C20.9283 10.8111 17.0679 10.8111 15.7799 10.8842C14.5337 10.9433 13.4267 11.2288 12.5112 12.1408C11.5957 13.0528 11.3138 14.1598 11.2511 15.4095C11.178 16.6975 11.178 20.5579 11.2511 21.8459C11.3103 23.0956 11.5957 24.2025 12.5112 25.1146C13.4267 26.0266 14.5302 26.312 15.7799 26.3747C17.0679 26.4478 20.9283 26.4478 22.2163 26.3747C23.466 26.3155 24.573 26.0301 25.485 25.1146C26.397 24.2025 26.6824 23.0956 26.7451 21.8459C26.8182 20.5579 26.8182 16.7009 26.7451 15.413ZM25.0812 23.2278C24.8097 23.9101 24.284 24.4358 23.5983 24.7108C22.5714 25.118 20.1347 25.024 18.9998 25.024C17.865 25.024 15.4248 25.1146 14.4014 24.7108C13.7192 24.4392 13.1935 23.9136 12.9185 23.2278C12.5112 22.2009 12.6052 19.7642 12.6052 18.6294C12.6052 17.4946 12.5147 15.0544 12.9185 14.031C13.19 13.3487 13.7157 12.8231 14.4014 12.5481C15.4283 12.1408 17.865 12.2348 18.9998 12.2348C20.1347 12.2348 22.5749 12.1443 23.5983 12.5481C24.2805 12.8196 24.8062 13.3452 25.0812 14.031C25.4885 15.0579 25.3945 17.4946 25.3945 18.6294C25.3945 19.7642 25.4885 22.2044 25.0812 23.2278Z" fill="white"/>
+</svg>
+</a>
+    <a href="#" class="social-icon-footer" aria-label="WhatsApp">
+     <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="1.13944" y="0.405063" width="36.4557" height="36.4557" rx="18.2278" stroke="white" stroke-width="0.810127"/>
+<path d="M12.8857 26.7339L14.2225 23.6554C13.1998 22.2037 12.7421 20.4287 12.9352 18.6635C13.1283 16.8983 13.959 15.2642 15.2713 14.068C16.5837 12.8717 18.2875 12.1955 20.063 12.1663C21.8385 12.137 23.5636 12.7567 24.9147 13.9091C26.2657 15.0614 27.1498 16.6672 27.4009 18.4251C27.6521 20.183 27.2531 21.9721 26.2788 23.4567C25.3046 24.9413 23.822 26.0194 22.1094 26.4885C20.3967 26.9576 18.5717 26.7856 16.9769 26.0048L12.8857 26.7339Z" stroke="white" stroke-width="1.62025" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.7471 17.8226C17.7471 17.93 17.7897 18.0331 17.8657 18.109C17.9417 18.185 18.0447 18.2277 18.1521 18.2277C18.2596 18.2277 18.3626 18.185 18.4386 18.109C18.5145 18.0331 18.5572 17.93 18.5572 17.8226V17.0125C18.5572 16.9051 18.5145 16.802 18.4386 16.7261C18.3626 16.6501 18.2596 16.6074 18.1521 16.6074C18.0447 16.6074 17.9417 16.6501 17.8657 16.7261C17.7897 16.802 17.7471 16.9051 17.7471 17.0125V17.8226ZM17.7471 17.8226C17.7471 18.8969 18.1738 19.9272 18.9335 20.6868C19.6931 21.4465 20.7234 21.8732 21.7977 21.8732M21.7977 21.8732H22.6078C22.7153 21.8732 22.8183 21.8306 22.8943 21.7546C22.9702 21.6786 23.0129 21.5756 23.0129 21.4682C23.0129 21.3608 22.9702 21.2577 22.8943 21.1818C22.8183 21.1058 22.7153 21.0631 22.6078 21.0631H21.7977C21.6903 21.0631 21.5872 21.1058 21.5113 21.1818C21.4353 21.2577 21.3926 21.3608 21.3926 21.4682C21.3926 21.5756 21.4353 21.6786 21.5113 21.7546C21.5872 21.8306 21.6903 21.8732 21.7977 21.8732Z" stroke="white" stroke-width="1.62025" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+  </div>
+</div>
+
+</div>
+</footer>
+<!-- =================================================================
+END: NEW FOOTER
+================================================================== -->
+<!-- JQuery Script for Header Interactivity -->
+<script>
+$(document).ready(function() {
+// --- 0. PRELOADER LOGIC ---
+  // This event waits for the entire page (including all images) to load
+  $(window).on('load', function() {
+    const preloader = $('#preloader');
+    
+    // Start the fade-out
+    preloader.css('opacity', '0');
+    
+    // After the fade-out transition is complete, hide it completely
+    setTimeout(function() {
+      preloader.css('visibility', 'hidden');
+    }, 700); // This duration must match the CSS transition duration
+  });
+
+  // --- 1. Desktop Dropdown Hover Logic ---
+  $('.dropdown-submenu').hover(function() {
+    $(this).find('.dropdown-menu').stop(true, true).slideDown(200);
+    $(this).find('a:first > svg').css('transform', 'rotate(180deg)');
+  }, function() {
+    $(this).find('.dropdown-menu').stop(true, true).slideUp(200);
+    $(this).find('a:first > svg').css('transform', '');
+  });
+
+  // --- 2. Search Overlay ---
+  $('#search-open-button').on('click', function() {
+    $('#search-overlay').fadeIn(300);
+    $('body').css('overflow', 'hidden'); 
+  });
+  $('#search-close-button').on('click', function() {
+    $('#search-overlay').fadeOut(300);
+    if ($('#mobile-menu-panel').hasClass('translate-x-full')) {
+       $('body').css('overflow', '');
+    }
+  });
+
+  // --- 3. Off-Canvas Mobile Menu ---
+  const menuPanel = $('#mobile-menu-panel');
+  const menuOverlay = $('#menu-overlay');
+
+  function openMobileMenu() {
+    menuPanel.removeClass('translate-x-full');
+    menuOverlay.fadeIn(300);
+    $('body').css('overflow', 'hidden');
+  }
+
+  function closeMobileMenu() {
+    menuPanel.addClass('translate-x-full');
+    menuOverlay.fadeOut(300);
+    $('body').css('overflow', '');
+  }
+
+  $('#mobile-menu-open-button').on('click', openMobileMenu);
+  $('#mobile-menu-close-button, #menu-overlay').on('click', closeMobileMenu);
+
+  // --- 4. Mobile Submenu Accordion ---
+  $('.mobile-submenu-trigger').on('click', function(e) {
+    e.preventDefault(); // Prevent link from navigating
+    
+    // Slide toggle the submenu
+    $(this).next('.mobile-submenu').slideToggle(200);
+
+    // Rotate the arrow icon
+    $(this).find('svg').toggleClass('rotate-180');
+  });
+
+ // --- 5. Reusable Native Scrolling Slider Function ---
+function initNativeScroller(sliderId) {
+    const slider = $(sliderId);
+    const viewport = slider.find('.overflow-x-auto');
+    const track = viewport.find('> div'); // Assumes track is the direct child
+    const slides = track.find('> div'); // Assumes slides are direct children of track
+    const prevBtn = slider.find('button').first();
+    const nextBtn = slider.find('button').last();
+
+    if (slides.length === 0) return;
+
+    // Function to smoothly scroll to a new position
+    function scrollTo(position) {
+        viewport.animate({ scrollLeft: position }, 400); // 400ms animation speed
+    }
+
+    // Update the disabled state of the buttons
+    function updateButtons() {
+        const currentScroll = viewport.scrollLeft();
+        const maxScroll = track[0].scrollWidth - viewport.innerWidth();
+        
+        // Disable prev button if at the beginning
+        prevBtn.prop('disabled', currentScroll < 10); 
+        
+        // Disable next button if at the end
+        nextBtn.prop('disabled', currentScroll > maxScroll - 10);
+    }
+
+    // Go to the next visible slide
+    nextBtn.on('click', function() {
+        const currentScroll = viewport.scrollLeft();
+        const slideWidth = slides.first().outerWidth();
+        scrollTo(currentScroll + slideWidth);
+    });
+
+    // Go to the previous visible slide
+    prevBtn.on('click', function() {
+        const currentScroll = viewport.scrollLeft();
+        const slideWidth = slides.first().outerWidth();
+        scrollTo(currentScroll - slideWidth);
+    });
+
+    // Update buttons whenever the user manually scrolls/swipes
+    viewport.on('scroll', updateButtons);
+
+    // Initial check
+    updateButtons();
+}
+
+// Initialize both sliders
+initNativeScroller('#video-slider');
+initNativeScroller('#news-slider');
+
+   // --- NEW: YOUTUBE VIDEO POPUP LOGIC ---
+    const videoModal = $('#video-popup-modal');
+    const videoPlayerContainer = $('#video-player-container');
+
+    // Function to get YouTube video ID from various URL formats
+    function getYouTubeId(url) {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    // When a video trigger link is clicked
+    $('.js-video-popup-trigger').on('click', function(e) {
+        e.preventDefault(); // Stop the link from navigating
+
+        const videoUrl = $(this).attr('href');
+        const videoId = getYouTubeId(videoUrl);
+
+        if (videoId) {
+            // Create the iframe embed code
+            const iframeHtml = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            
+            // Inject the iframe and show the modal
+            videoPlayerContainer.html(iframeHtml);
+            videoModal.fadeIn(200);
+            $('body').css('overflow', 'hidden'); // Prevent background scrolling
+        }
+    });
+
+    // Function to close the modal
+    function closeVideoPopup() {
+        videoModal.fadeOut(200);
+        videoPlayerContainer.html(''); // IMPORTANT: Stop the video by removing the iframe
+        $('body').css('overflow', ''); // Restore scrolling
+    }
+
+    // Close the modal when the close button or the background overlay is clicked
+    $('#video-popup-close, #video-popup-modal').on('click', function(e) {
+        // Ensure we only close if the click is on the modal background itself, not the video player
+        if (e.target.id === 'video-popup-modal' || e.target.closest('#video-popup-close')) {
+             closeVideoPopup();
+        }
+    });
+
+     // Function to get YouTube video ID from various URL formats
+    function getYouTubeIdFromUrl(url) {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    $('.js-youtube-inline-trigger').on('click', function() {
+        const $this = $(this);
+        const youtubeUrl = $this.data('youtube-url');
+        const youtubeId = getYouTubeIdFromUrl(youtubeUrl);
+
+        // Do nothing if the card is already playing or has no valid ID
+        if ($this.hasClass('is-playing') || !youtubeId) {
+            return;
+        }
+
+        // Stop any other inline videos that might be playing
+        $('.js-youtube-inline-trigger.is-playing').each(function() {
+            $(this).removeClass('is-playing');
+            $(this).find('iframe').remove();
+            $(this).find('.video-overlay-content').fadeIn(200);
+        });
+
+        // Hide the thumbnail/overlay of the clicked card
+        $this.find('.video-overlay-content').fadeOut(200);
+
+        // Create the YouTube iframe element. 
+        // NOTE: autoplay=1 with sound is often blocked by browsers. 
+        // We add controls=1 so the user can manually play/unmute.
+        const iframeElement = `
+            <iframe class="absolute inset-0 w-full h-full z-10" 
+                    src="https://www.youtube.com/embed/${youtubeId}?autoplay=1&controls=1&rel=0" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>`;
+            
+        // Append the iframe and mark the card as playing
+        $this.append(iframeElement);
+        $this.addClass('is-playing');
+    });
+    // --- NEW: STOP VIDEO ON OUTSIDE CLICK ---
+    $(document).on('click', function(e) {
+        const currentlyPlaying = $('.js-youtube-inline-trigger.is-playing');
+        
+        // Check if a video is playing AND if the click was outside of it
+        if (currentlyPlaying.length > 0 && !currentlyPlaying.is(e.target) && currentlyPlaying.has(e.target).length === 0) {
+            
+            // Find the video, remove it, and show the thumbnail overlay again
+            currentlyPlaying.removeClass('is-playing');
+            currentlyPlaying.find('iframe').remove();
+            currentlyPlaying.find('.video-overlay-content').fadeIn(200);
+        }
+    });
+});
+</script>
+</body>
+
+</html>
